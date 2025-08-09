@@ -1,21 +1,8 @@
+from bs4 import BeautifulSoup  
 import requests
-from flask import Flask, render_template
 
-app = Flask(__name__)
+request = requests.get("https://ca.images.search.yahoo.com/search/images;_ylt=AwrFPfH9dJdov3Yfg17sFAx.;_ylu=c2VjA3NlYXJjaARzbGsDYnV0dG9u;_ylc=X0kDUUNzbXFURXlOeTczMVVoZWFKVFF0Z0haTmpjdU1RQUFBQUFNMnF2VQRfUwMyMTE0NzIxMDA0BF9yAzIEY3NyY3B2aWQDUUNzbXFURXlOeTczMVVoZWFKVFF0Z0haTmpjdU1RQUFBQUFNMnF2VQRmcgMEZnIyA3NiLXRvcARncHJpZAM5bTg2dENYaFJ6SzRuQ3RaUnhwSmRBBG5fcnNsdAMwBG5fc3VnZwMxMARvcmlnaW4DY2EuaW1hZ2VzLnNlYXJjaC55YWhvby5jb20EcG9zAzAEcHFzdHIDBHBxc3RybAMwBHFzdHJsAzExBHF1ZXJ5A2hvbmRhJTIwY2l2aWMEdF9zdG1wAzE3NTQ3NTYzNTIEdnRlc3RpZAM-?p=honda+civic&ei=&iscqry=&fr=&fr2=sb-top")
 
-@app.route("/")
-def hello_world():
-    return render_template("index.html")
+soup = BeautifulSoup(request.text, 'html.parser')
 
-@app.route("/api/v1/car-makes", methods=["GET"])
-def get_car_makes():
-    r = requests.get("https://carapi.app/api/makes/v2")
-    return r.json()
-
-@app.route("/api/v1/car-models/<car_make>", methods=["GET"])
-def get_car_models(car_make):
-    r = requests.get(f"https://carapi.app/api/models/v2?make={car_make}")
-    return r.json()
-
-if __name__ == "__main__":
-    app.run(debug=True)
+print(soup.img)
