@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <div class="car_info_options">
+            <label for="car_make">Make</label>
+            <select class="info-select" name="car_make" id="car_make">
+                <option value="empty"></option>
+            </select>
+        </div>
+
+        <div class="car_info_options">
+            <label for="car_model">Model</label>
+            <select class="info-select" name="car_model" id="car_model">
+                <option value="empty"></option>
+            </select>
+        </div>
+    </form>
+</body>
+
+</html>
