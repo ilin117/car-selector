@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
+    print("Hello World")
     return render_template("index.html")
 
 @app.route("/api/v1/car-makes", methods=["GET"])
@@ -22,7 +23,8 @@ def get_car_models(car_make):
 def get_car_picture(car_make, car_model):
     r = requests.get(f'https://images.search.yahoo.com/search/images;?p=${car_make}+{car_model}')
     soup = BeautifulSoup(r.text, 'html.parser')
-    return f"{soup.img}"
+    all_imgs = [img["data-src"] for img in soup.find_all("img") if img.has_attr("data-src")]
+    return {"images": all_imgs[0:4]}
 
 if __name__ == "__main__":
     app.run(debug=True)

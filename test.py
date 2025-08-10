@@ -1,8 +1,0 @@
-from bs4 import BeautifulSoup  
-import requests
-
-request = requests.get("https://ca.images.search.yahoo.com/search/images;_ylt=AwrFPfH9dJdov3Yfg17sFAx.;_ylu=c2VjA3NlYXJjaARzbGsDYnV0dG9u;_ylc=X0kDUUNzbXFURXlOeTczMVVoZWFKVFF0Z0haTmpjdU1RQUFBQUFNMnF2VQRfUwMyMTE0NzIxMDA0BF9yAzIEY3NyY3B2aWQDUUNzbXFURXlOeTczMVVoZWFKVFF0Z0haTmpjdU1RQUFBQUFNMnF2VQRmcgMEZnIyA3NiLXRvcARncHJpZAM5bTg2dENYaFJ6SzRuQ3RaUnhwSmRBBG5fcnNsdAMwBG5fc3VnZwMxMARvcmlnaW4DY2EuaW1hZ2VzLnNlYXJjaC55YWhvby5jb20EcG9zAzAEcHFzdHIDBHBxc3RybAMwBHFzdHJsAzExBHF1ZXJ5A2hvbmRhJTIwY2l2aWMEdF9zdG1wAzE3NTQ3NTYzNTIEdnRlc3RpZAM-?p=honda+civic&ei=&iscqry=&fr=&fr2=sb-top")
-
-soup = BeautifulSoup(request.text, 'html.parser')
-
-print(soup.img)

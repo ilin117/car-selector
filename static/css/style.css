@@ -16,3 +16,9 @@
     padding: 10px;
     border: 1px solid #ccc;
 }
+
+#car-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
